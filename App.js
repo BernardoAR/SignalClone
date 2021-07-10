@@ -8,12 +8,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
 import AddChatScreen from './screens/AddChatScreen';
+import ChatScreen from './screens/ChatScreen';
 
 const Stack = createStackNavigator();
 const globalScreenOptions = {
   headerStyle: { backgroundColor: '#2C6BED' },
   headerTintColor: 'white',
   headerTitleStyle: { color: 'white' },
+  headerTitleAlign: 'center',
 };
 export default function App() {
   return (
@@ -26,6 +28,7 @@ export default function App() {
         <Stack.Screen name='Cadastrar' component={RegisterScreen} />
         <Stack.Screen name='Inicio' component={HomeScreen} />
         <Stack.Screen name='AddChat' component={AddChatScreen} />
+        <Stack.Screen name='Chat' component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
