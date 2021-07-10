@@ -16,7 +16,9 @@ const LoginScreen = ({ navigation }) => {
     return unsubscribe;
   }, []);
 
-  const login = () => {};
+  const signIn = () => {
+    auth.signInWithEmailAndPassword(email, password).catch((error) => alert(error));
+  };
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
       <StatusBar style='light' />
@@ -25,16 +27,17 @@ const LoginScreen = ({ navigation }) => {
         style={{ width: 200, height: 200 }}
       />
       <View style={styles.inputContainer}>
-        <Input placeholder='Email' autoFocus type='email' value={email} onChangeText={(text) => setEmail(text)} />
+        <Input placeholder='Email' autoFocus type='email' value={email} onChangeText={(email) => setEmail(email)} />
         <Input
           placeholder='Senha'
           type='password'
-          value={email}
-          onChangeText={(password) => setEmail(password)}
+          value={password}
+          onChangeText={(password) => setPassword(password)}
           secureTextEntry
+          onSubmitEditing={signIn}
         />
       </View>
-      <Button containerStyle={styles.button} onPress={login} title='Login' />
+      <Button containerStyle={styles.button} title='Login' onPress={signIn} />
       <Button
         onPress={() => navigation.navigate('Cadastrar')}
         containerStyle={styles.button}
