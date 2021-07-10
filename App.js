@@ -17,7 +17,10 @@ const globalScreenOptions = {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={globalScreenOptions}>
+      <Stack.Navigator
+        // initialRouteName='Inicio'
+        screenOptions={globalScreenOptions}
+      >
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Cadastrar' component={RegisterScreen} />
         <Stack.Screen name='Inicio' component={HomeScreen} />
