@@ -8,7 +8,6 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      console.log(authUser);
       if (authUser) {
         navigation.replace('Inicio');
       }

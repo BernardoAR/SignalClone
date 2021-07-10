@@ -7,6 +7,7 @@ import LoginScreen from './screens/LoginScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
+import AddChatScreen from './screens/AddChatScreen';
 
 const Stack = createStackNavigator();
 const globalScreenOptions = {
@@ -18,12 +19,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // initialRouteName='Inicio'
+        // initialRouteName='AddChat'
         screenOptions={globalScreenOptions}
       >
         <Stack.Screen name='Login' component={LoginScreen} />
         <Stack.Screen name='Cadastrar' component={RegisterScreen} />
         <Stack.Screen name='Inicio' component={HomeScreen} />
+        <Stack.Screen name='AddChat' component={AddChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
