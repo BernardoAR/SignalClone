@@ -3,14 +3,23 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+import LoginScreen from './screens/LoginScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+import RegisterScreen from './screens/RegisterScreen';
 
+const Stack = createStackNavigator();
+const globalScreenOptions = {
+  headerStyle: { backgroundColor: '#2C6BED' },
+  headerTintColor: 'white',
+  headerTitleStyle: { color: 'white' },
+};
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <StatusBar style='auto' />
-        <Text>LET'S BUILD SIGNAL!</Text>
-      </View>
+      <Stack.Navigator screenOptions={globalScreenOptions}>
+        <Stack.Screen name='Login' component={LoginScreen} />
+        <Stack.Screen name='Cadastrar' component={RegisterScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
