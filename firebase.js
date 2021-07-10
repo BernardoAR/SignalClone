@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
 const firebaseConfig = {
@@ -9,12 +9,8 @@ const firebaseConfig = {
   messagingSenderId: '597337316201',
   appId: '1:597337316201:web:5535a53c8750c3f35fbbf8',
 };
-let app;
-if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig);
-} else {
-  app = firebase.app();
-}
+let app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+
 const db = app.firestore();
 const auth = firebase.auth();
 export { db, auth };
